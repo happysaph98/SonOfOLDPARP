@@ -1,12 +1,14 @@
+
 {% extends "base.html" %}
 {% block header %}
 <link rel="stylesheet" type="text/css" href="/static/css/em-reset.css" />
-<link rel="stylesheet" type="text/css" href="/static/css/home.css?41102" />
-<link rel="stylesheet" type="text/css" href="/static/css/characters.css?41031" />
+<link rel="stylesheet" type="text/css" href="/static/css/home.css" />
+<link rel="stylesheet" type="text/css" href="/static/css/characters.css" />
+<link rel="stylesheet" id="creppyid" href="/static/css/mscreppy.css" type="text/css"  />
 <link rel="stylesheet" media="screen" type="text/css" href="/static/colorpicker/css/colorpicker.css" />
 <script type="text/javascript" src="/static/colorpicker/js/colorpicker.js"></script>
-<script src="/static/js/characters.js?41102b"></script>
-<script src="/static/js/home.js?41102"></script>
+<script src="/static/js/characters.js?mc"></script>
+<script src="/static/js/home.js?p"></script>
 {% endblock %}
 {% block content %}
 
@@ -18,11 +20,9 @@
 <div id="charbar" >
 <!-- ### Character colours go here, something of this style; THIS IS NOT WORKING CODE 
          should be a list of spans back-to-back with width set to % of users on a given hexcode
-
 {% for hexcode in charactersonline %}
 	<span style="width:{{usagepercent[hexcode]}}% background-color:{{hexcode}}"></span>
 			{% endfor %}
-
 -->
 </div>
 <div id="navbar">
@@ -42,14 +42,6 @@
 	</li>
 	<li>
 		<a class="help" href="http://help.msparp.com/" target="_blank">Help
-		</a>
-	</li>
-	<li>
-		<a class="groups new" href="http://forums.msparp.com/forumdisplay.php?fid=11" target="_blank">Groups
-		</a>
-	</li>
-	<li>
-		<a class="groupsnsfw new" href="http://forums.msparp.com/forumdisplay.php?fid=12" target="_blank">Groups 18+
 		</a>
 	</li>
 	<li>
@@ -88,8 +80,8 @@ You completely need javascript for this site. Turn it on or upgrade to a real br
 
 	<p id="numberUsers"><span class="bigtext">PARP server is <span id="serverstatus"><span class="ok">running</span></span>.</span><br><br> {{users_searching+users_chatting}} clients connected<br>{{users_chatting}} connections established, {{users_searching}} pending</p>
 	<br><div class="checkbox_outer"><label><input type="checkbox" class="boxy wrapbutton" name="wrapbutton"/><span class="checky"></span> wrap chat buttons under quirks</label></div><br>	
-	<div class="checkbox_outer"><label><input type="checkbox" class="boxy enablecreppy" name="enablecreppy"/><span class="checky"></span> relive MSCREPPY</label></div><br>	
-	<div class="checkbox_outer hidecreppy"><label><input type="checkbox" class="boxy toggledown" name="toggledownfall"/><span class="checky"></span> /toggledownfall</label></div><br>	
+	<div class="checkbox_outer"><label><input type="checkbox" class="boxy disablecreppy" name="disablecreppy"/><span class="checky"></span> disable MSCREPPY</label></div><br>	
+	<div class="checkbox_outer"><label><input type="checkbox" class="boxy toggledown" name="toggledownfall"/><span class="checky"></span> /toggledownfall</label></div><br>	
 </div><div class="noticeblock">
 <div class="online-notice">
 	<h1>Announcements</h1>
@@ -134,13 +126,6 @@ You completely need javascript for this site. Turn it on or upgrade to a real br
 		<span class="pester-line" id="color-preview"><span id="acronym">??: </span><span id="quote">oh god how did this get here I am not good with computer</span></span>{% if error=="color" %}
                 <span class="error">You entered an invalid hex code. Try using the color picker.</span>{% endif %}
 	</div>
-	<a id="quirkexpbutton" onclick="$('#quirkexplain').toggle()">How to disable quirks per line & more</a><br>
-	<span id="quirkexplain" style="display:none">
-	· "Lower" no longer prevents you from YELLING and EMPHASIS<br>
-	· Begin a line with / to prevent quirks from applying<br>
-	· Use [caps][/caps] or [c][/c] to force caps<br>
-	· Use [whisper][/whisper] or [w][/w] for GC/CG/AT whispering<br>
-	</span>
 </div>
 
 <div class="options">
