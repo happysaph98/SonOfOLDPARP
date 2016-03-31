@@ -30,8 +30,29 @@ def scenify(redis, cookie, chat, line):
         ["rose", "ross"],
         ["jade", "jude"],
         ["noncon", "poo"],
+<<<<<<< HEAD
         ["no ", "yiff my anus <3 "],
         ["kankri", "karkles"],
+=======
+        ["signless", "swagglegs XD"],
+        ["handmaid", "hand made"],
+        ["summoner", "swaggonner B)"],
+        ["disciple", "kim pawsible"],
+        ["dolorosa", "holla holla get dolla"],
+        ["redglare", "wayne"],
+        ["mindfang", "teh serkiest"],
+        ["darkleer", "nyan nyan nyan! ~=[,,_,,]:3"],
+        ["grand highblood", "exit lite. enter nite. take meh hand. where of to nevar navar land!"],
+        ["ghb ", "ka[i][/i]nkri"],
+        ["dualscar", "furry"],
+        ["hic", "nicki"],
+        ["condescension", "condensed milkies"],
+        ["affirmative", "nyeh wweh wweh weeh!"],
+        ["yeah", "pocky (•́⌄•́๑)૭✧"],
+        ["no ", "nuuuuuuuuu DX"],
+        ["kankri", "karkles"],
+        ["kurloz", "kankri/cronus is so kawaii XD"],
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
         ["damara", "weeaboo queen :o"],
         ["rufioh", "ROOFIOOOOOOOOOOOOH"],
         ["mituna", "precious baby tutu"],
@@ -58,15 +79,27 @@ def scenify(redis, cookie, chat, line):
         ["a s s", "poo poo hole"],
         ["stink", "stinkay"],
         [":)", "xD"],
+<<<<<<< HEAD
+=======
+        ["rekt", "i learning japanese"],
+        ["m8", "panda-chan!"],
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
         [":(", "DX"],
         ["them", "thems"],
         ["like", "likeys"],
         ["f u c k", "FIDDLY DIDDLY!"],
         ["f u ck", "frickle de doo"],
+<<<<<<< HEAD
         ["fu ck", "yiff me hard"],
         ["fuc k", "f*** (sorry for the foul language)"],
         ["f uck", "i like pants"],
         ["y.e.s", "yiff my furry ass"],
+=======
+        ["fu ck", "i'm actually a furry just saying"],
+        ["fuc k", "f*** (sorry for the foul language)"],
+        ["f uck", "i like pants"],
+        ["y.e.s", "k"],
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
         ["fuc k", "frideg"],
         ["f uc k", "pole benders!!!"],
         ["fu c k", "P I Z Z A"],
@@ -77,7 +110,12 @@ def scenify(redis, cookie, chat, line):
         ["omg", "ZOMGZ!!11"],
         ["yo ", "im a gangzters"],
         ["nipple", "tinkle winkle"],
+<<<<<<< HEAD
         [" hey", "hay"],
+=======
+        ["hey", "hay"],
+        ["thay", "thems"],
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
         ["fuck off", "my pits smell like applesauce with cream cheese!"],
         ["omfg", "oh my freaking gog!! xD"],
         ["oh my god", "oh my gob"],
@@ -89,16 +127,26 @@ def scenify(redis, cookie, chat, line):
         ["shit", "poopies~"],
         ["holy poopies~", "I'M SO RANDOM"],
         ["love", "LUrve"],
+<<<<<<< HEAD
         ["what?", "[O___________0]< AWKWARD WHALE HERE to ask: r u highs XD"],
         ["me", "meh"],
         ["christ", "WHAT'S YOUR MYSPACE? XD maybe we can be bffs!!(warning i have a LOT of random music on mine."],
         ["fuck", "fudge"],
         ["damn", "darn"],
         ["ass", "booty"],
+=======
+        ["wat teh", "[O___________0]< AWKWARD WHALE HERE to ask: r u highs XD"],
+        ["me", "meh"],
+        ["christ", "WHAT'S YOUR MYSPACE? XD maybe we can be bffs!!(warning i have a LOT of random music on mine)."],
+        ["fuck", "fudge"],
+        ["damn", "darn"],
+        ["ass", "*leans down. whispers* my bumhole ;o_o"],
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
         ["haha", "mwahahaha!!!111"],
         ["what", "wat"],
         ["bye", "baiiii XD"],
         ["hello", "hallo! xD"],
+<<<<<<< HEAD
         ["hate", "LOVE"],
         ["hell", "heck"],
         ["help", "halpz me"],
@@ -106,6 +154,15 @@ def scenify(redis, cookie, chat, line):
         ["admins", "those cool guys"],
         ["sorry", "sawwy"],
         ["im sawwy", "I apologize to the MSPARP staff for being a little shit. Please don't ban me. [color=#eeeeee] haha your pain is funny[/color]"],
+=======
+        ["hate", "luv"],
+        ["hell", "heck"],
+        ["help", "halpz"],
+        ["jfc", "jegus fudging crust"],
+        ["admins", "those cool guys"],
+        ["sorry", "sawwy"],
+        ["im sawwy", "pina colada?"],
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
         ["okay", "otay"],
         ["ok", "okayz"],
         ["idk", "i dun knoes"],
@@ -123,10 +180,20 @@ def scenify(redis, cookie, chat, line):
         ["fudge u", "fak u ◖(◕◡◕)◗凸"],
         ["the feels", "oh glob i'm crying my mascara is running. it makes me look like a panda XD"],
         ["the", "teh"],
+<<<<<<< HEAD
         ["yes", "yiff meh"],
         ["wait", "w8"],
         ["is", "iz"],
         ["thrust", "pee"],
+=======
+        ["yes", "yiff"],
+        ["wait", "w8"],
+        ["is", "iz"],
+        ["thrust", "pee"],
+        ["chink", "panda"],
+        ["jiggaboo", "you know i am really desperate to troll you and it's not working"],
+        ["vpn", "toilet"],
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
         ["want", "wantzies"],
         ["eheh", "pee on the floor"],
         ["hehe", "TEHEHEHE X3"],
@@ -140,6 +207,11 @@ def scenify(redis, cookie, chat, line):
         ["trans scum", "i am so sorry for everything i've said"],
         ["faggot", "best pal"],
         ["fag ", "CHEESE WHEELS XD"],
+<<<<<<< HEAD
+=======
+        ["kek", "baka!"],
+        ["lel", "nya"],
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
         ["suicide", "hug my stuffies"],
         ["nigga", "panda buddies <3"],
         ["a proxy", "a secrat thingy o-O"],
@@ -148,13 +220,24 @@ def scenify(redis, cookie, chat, line):
         ["hack", "ship"],
         ["bitch", "karry"],
         ["bootyhole", "karry"],
+<<<<<<< HEAD
         ["yesterday", "yiff mehterday"],
         ["sucks", "is the best"],
         ["gay", "rose"],
+=======
+        ["never", "nevar"],
+        ["h a t e", "hickly doo dee dum flumb fulmb"],
+        ["sucks", "is the best"],
+        ["gay", "yaoi"],
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
         ["jesus", "o_o mlp"],
         ["boob", "boobiehz XD"],
         ["dick", "anusfly"],
         ["vagina", "pee pee hole"],
+<<<<<<< HEAD
+=======
+        ["this", "dis"],
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
         ["peniz", "pee pee"],
         ["cunt", "meanie bobeanie"],
         ["bugger", "TACOS! XD"],
@@ -168,10 +251,17 @@ def scenify(redis, cookie, chat, line):
         ["rape", "huggle"],
         ["bbl", "I WILL RETURN XD"],
         ["im fudgeing done", "do you have kik?"],
+<<<<<<< HEAD
         ["fudge meh", "let's yiff X3"],
         ["s h i t", "poopsies QAQ"],
         ["hitler", "Tokyo Mew Mew"],
         ["fudge this", "preps never understand QAQ"],
+=======
+        ["fudge meh", "AAAAAAAAAAAAHHHHHH AHM FIRIN MAH LASAR!!!!!!!!!!!"],
+        ["s h i t", "poopsies QAQ"],
+        ["hitler", "furry"],
+        ["fudge dis", "preps never understand QAQ"],
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
         ["shlong", "pee pee o_o"],
         ["pussy", "tinkler"],
         ["slut", "stinker"],
@@ -180,6 +270,15 @@ def scenify(redis, cookie, chat, line):
         ["titties", "no no zone"],
         ["owned", "pwned"],
         ["own", "pwn"],
+<<<<<<< HEAD
+=======
+        ["heil", "glomp me,"],
+        ["hail", "glomp me,"],
+        ["fuhrer", ", furry :3"],
+        ["mehin", " "],
+        ["4chan", "mah pocky sticks"],
+        ["ye ah", "you know. i never really thought about how fire alarms work. do they just smell the carrots when i shove them into my ears or is that just me?"]
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
     ]
 
     r = lambda: randint(0, 255)

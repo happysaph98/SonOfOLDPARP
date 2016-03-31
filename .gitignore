@@ -1,3 +1,9 @@
 logs/
 *.pyc
+<<<<<<< HEAD
 .DS_Store
+=======
+.DS_Store
+tmp/
+env/
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404

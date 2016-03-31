@@ -106,12 +106,29 @@ def get_sublist(redis, chat, sessions):
 def parse_line(line, id):
     # Lines consist of comma separated fields.
     parts = line.split(',', 4)
+<<<<<<< HEAD
     if not isinstance(parts[4], unicode):
         parts[4] = unicode(parts[4], encoding='utf-8')
     return {
         'id': id,
         'timestamp': int(parts[0]),
         'counter': int(parts[1]),
+=======
+
+    try:
+        if not isinstance(parts[4], unicode):
+            parts[4] = unicode(parts[4], encoding='utf-8')
+
+        timestamp = int(parts[0])
+        counter = int(parts[1])
+    except (ValueError, IndexError):
+        return None
+
+    return {
+        'id': id,
+        'timestamp': timestamp,
+        'counter': counter,
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
         'type': parts[2],
         'color': parts[3],
         'line': parts[4]

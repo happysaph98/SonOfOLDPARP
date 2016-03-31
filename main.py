@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 try:
     import ujson as json
 except:
@@ -17,11 +18,24 @@ from lib.messages import parse_line
 from lib.model import Log, LogPage
 from lib.requests import populate_all_chars, connect_redis, connect_mysql, create_normal_session, set_cookie, disconnect_redis, disconnect_mysql
 from lib.sessions import CASE_OPTIONS
+=======
+import datetime
+import os
+from flask import Flask, g, request, render_template, redirect, url_for, abort
+from sqlalchemy import and_
+from sqlalchemy.orm.exc import NoResultFound
+from webhelpers import paginate
+
+from lib.messages import parse_line
+from lib.model import Log, LogPage
+from lib.requests import connect_mysql, disconnect_mysql
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
 
 from werkzeug.contrib.fixers import ProxyFix
 
 app = Flask(__name__)
 
+<<<<<<< HEAD
 app.wsgi_app = ProxyFix(app.wsgi_app, 2)
 
 # Pre and post request stuff
@@ -52,11 +66,23 @@ def show_homepage(error):
         welcome_text=(g.redis.get('welcome_text') or "").decode("utf8"),
     )
 
+=======
+# Export config
+app.config['EXPORT_URL'] = os.environ.get("EXPORT_URL", "http://unsupportedlogs.msparp.com")
+
+app.wsgi_app = ProxyFix(app.wsgi_app, 2)
+
+# Pre and post request stuff
+app.before_request(connect_mysql)
+app.teardown_request(disconnect_mysql)
+
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
 # Chat
 
 @app.route('/chat')
 @app.route('/chat/<chat>')
 def chat(chat=None):
+<<<<<<< HEAD
 
     if chat is None:
         chat_meta = { 'type': 'unsaved' }
@@ -164,6 +190,11 @@ def save_log():
         url_tags = urllib.quote_plus(','.join(tags))
         return redirect('http://www.tumblr.com/new/link?post[one]=Check+out+this+chat+I+just+had+on+MSPARP!&post[two]=http%3A%2F%2Funsupported.msparp.com%2Flogs%2F'+str(log_id)+'&post[source_url]=http%3A%2F%2Fmsparp.com%2F&tags='+url_tags)
     return redirect(url_for('view_log', chat=request.form['chat']))
+=======
+    if chat is None:
+        return redirect(url_for("home"))
+    return redirect(url_for("view_log", chat=chat))
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
 
 @app.route('/logs/group/<chat>')
 def old_view_log(chat):
@@ -186,12 +217,18 @@ def view_log_by_id(log_id=None):
 @app.route('/chat/<chat>/log')
 def view_log(chat=None):
 
+<<<<<<< HEAD
     # Decide whether or not to put a continue link in.
     continuable = g.redis.hget('chat.'+chat+'.meta', 'type') is not None
 
     try:
         log = g.mysql.query(Log).filter(Log.url==chat).one()
     except:
+=======
+    try:
+        log = g.mysql.query(Log).filter(Log.url==chat).one()
+    except NoResultFound:
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
         abort(404)
 
     current_page = request.args.get('page') or log.page_count
@@ -211,7 +248,11 @@ def view_log(chat=None):
 
     # Pages end with a line break, so the last line is blank.
     lines = log_page.content.split('\n')[0:-1]
+<<<<<<< HEAD
     lines = map(lambda _: parse_line(_, 0), lines)
+=======
+    lines = filter(lambda x: x is not None, map(lambda _: parse_line(_, 0), lines))
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
 
     for line in lines:
         line['datetime'] = datetime.datetime.fromtimestamp(line['timestamp'])
@@ -219,6 +260,7 @@ def view_log(chat=None):
     return render_template('log.html',
         chat=chat,
         lines=lines,
+<<<<<<< HEAD
         continuable=continuable,
         current_page=current_page,
         mode=mode,
@@ -458,6 +500,11 @@ def admin_panda():
         lines=pandas,
         result=result,
         page="panda"
+=======
+        current_page=current_page,
+        mode=mode,
+        paginator=paginator,
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
     )
 
 
@@ -470,6 +517,7 @@ def doHealthCheck():
 
 @app.route("/faq")
 def faq():
+<<<<<<< HEAD
     return requests.get("http://www.dlh-digital.com/msparpfaq.html").text
 
 @app.route("/bbcode")
@@ -479,13 +527,45 @@ def bbcode():
 @app.route("/userguide")
 def userguide():
     return requests.get("http://www.dlh-digital.com/userguide.html").text
+=======
+    return render_template("pages/msparpfaq.html")
+
+@app.route("/bbcode")
+def bbcode():
+    return render_template("pages/bbcode.html")
+
+@app.route("/userguide")
+def userguide():
+    return render_template("pages/userguide.html")
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
 
 # Home
 
 @app.route("/")
 def configure():
+<<<<<<< HEAD
     return show_homepage(None)
 
 if __name__ == "__main__":
     app.run(port=8000, debug=True)
 
+=======
+    return render_template("frontpage.html")
+
+# Exporting
+
+@app.route('/chat/<chat>/export')
+def export_log(chat=None):
+    if g.redis.exists('chat.' + chat + '.exported'):
+        return render_template('export_complete.html', chat=chat)
+
+    # Add to queue if chat log exists.
+    if g.mysql.query(Log).filter(Log.url == chat).scalar():
+        g.redis.sadd('export-queue', chat)
+
+    return render_template('export_progress.html', chat=chat)
+
+
+if __name__ == "__main__":
+    app.run(port=8000, debug=True)
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404

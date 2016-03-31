@@ -8,10 +8,15 @@ def get_or_create_log(redis, mysql, chat):
     try:
         log = mysql.query(Log).filter(Log.url==chat).one()
         try:
+<<<<<<< HEAD
             latest_page_query = mysql.query(LogPage).filter(LogPage.log_id==log.id).order_by(LogPage.number.asc())
             latest_page = latest_page_query[-1]
             # XXX Is IndexError the right exception?
         except IndexError:
+=======
+            latest_page = mysql.query(LogPage).filter(LogPage.log_id == log.id).order_by(LogPage.number.desc()).limit(1).one()
+        except NoResultFound:
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
             latest_page = new_page(mysql, log)
     except NoResultFound:
         log = Log(url=chat)
@@ -35,12 +40,25 @@ def archive_chat(redis, mysql, chat, backlog=0):
     lines = redis.lrange('chat.'+chat, 0, -1-backlog)
     for line in lines:
         # Create a new page if the line won't fit on this one.
+<<<<<<< HEAD
         #if len(latest_page.content.encode('utf8'))+len(line)>65535:
+=======
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
         if len(latest_page.content.encode('utf8'))+len(line)>65535:
             print "creating a new page"
             latest_page = latest_page = new_page(mysql, log, latest_page.number)
             print "page "+str(latest_page.number)
+<<<<<<< HEAD
         latest_page.content += unicode(line, encoding='utf8')+'\n'
+=======
+
+        # Decode the line on ignore strip out invalid utf8 characters
+        line = line.decode('utf8', 'ignore')
+
+        # Append the line to the new page
+        latest_page.content += line + '\n'
+
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
     log.time_saved = datetime.datetime.now()
     mysql.commit()
     # Don't delete from redis until we've successfully committed.

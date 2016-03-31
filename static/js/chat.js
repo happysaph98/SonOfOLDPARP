@@ -62,6 +62,7 @@ $(document).ready(function() {
 
 	var globals = [];
 	var bbset = 1;
+<<<<<<< HEAD
 
 	var storage = (function() {
 	  var uid = new Date;
@@ -107,6 +108,86 @@ $(document).ready(function() {
 				localStorage.setItem('dfall', '');}
 			}
 		}).change();
+=======
+	var hidesystem = 0;
+
+	var storage = (function() {
+		var uid = new Date;
+		var result;
+		try {
+			localStorage.setItem(uid, uid);
+			result = localStorage.getItem(uid) == uid;
+			localStorage.removeItem(uid);
+			return result && localStorage;
+		} catch (exception) {}
+	}());
+	
+	$("meta[name=viewport]").attr('content', 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0');
+	
+	if (storage) {
+
+		$('body').addClass(localStorage.hdpi);
+
+		if (localStorage.creppy == 'creppy'){
+			$('head').append('<link rel="stylesheet" id="creppyid" href="/static/css/mscreppy_chat.css?41031" type="text/css" />');
+			$('.hidecreppy').show();
+		} else {
+			$('.hidecreppy').hide();
+		}
+		
+		if (localStorage.dfall == 'downfall'){
+			$('input[name="toggledownfall"]').prop('checked',true);
+		}
+		
+		$('body').addClass(localStorage.dfall);
+
+        if (localStorage.getItem(chat+"hidesystem") === undefined || localStorage.getItem(chat+"hidesystem") === null) {
+            localStorage.setItem(chat+"hidesystem", hidesystem);
+        }
+
+        hidesystem = localStorage.getItem(chat+"hidesystem");
+
+	}
+
+    if (hidesystem == 1) {
+        $('.hidesystem').attr('checked','checked');
+        $('.system').hide();
+        $('.globalann').hide();
+    }
+
+    $('.hidesystem').click(function() {
+        if (this.checked) {
+            if (storage) {
+                localStorage.setItem(chat+"hidesystem", 1);
+            }
+            hidesystem = 1;
+            $('.system').hide();
+            $('.globalann').hide();
+        } else {
+            if (storage) {
+                localStorage.setItem(chat+"hidesystem", 0);
+            }
+            hidesystem = 0;
+            $('.system').show();
+            $('.globalann').show();
+            conversation.scrollTop(conversation[0].scrollHeight);
+        }
+    });
+
+	$('input[name="toggledownfall"]').change(function() {
+		if($(this).is(':checked')) {
+			$('body').addClass('downfall');
+			if (storage) {
+				localStorage.setItem('dfall', 'downfall');
+			}
+		} else {
+			$('body').removeClass('downfall');
+			if (storage) {
+				localStorage.setItem('dfall', '');
+			}
+		}
+	}).change();
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
 	
     $('#conversation p').each(function() {
         if (bbset == 1) {
@@ -191,7 +272,21 @@ $(document).ready(function() {
 			if (highlightUser==msg.counter) {
 				mp.addClass('highlight');
 			}
+<<<<<<< HEAD
 			
+=======
+
+			if (hidesystem == 1 && msgClass == 'system') {
+				$('.system').hide();
+			}
+
+			if (typeof hidden!=="undefined" && document[hidden]==true) {
+				if (hidesystem == 1 && msgClass == 'system') {} else {
+					document.title = "New message - "+ORIGINAL_TITLE;
+				}
+			}
+
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
 			if ($('#userList #user'+msg.counter).hasClass('globalmod')) {
 				mp.addClass('staffmessage').prepend('<span class="spiroicon"></span>');
 			}
@@ -262,9 +357,12 @@ $(document).ready(function() {
 						$('#topic').text('');
 					}
 				}
+<<<<<<< HEAD
 				if (messages.length>0 && typeof hidden!=="undefined" && document[hidden]==true) {
 					document.title = "New message - "+ORIGINAL_TITLE;
 				}
+=======
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
 			}, "json").complete(function() {
 				if (chatState=='chat') {
 					window.setTimeout(getMessages, 1000);
@@ -620,6 +718,13 @@ $(document).ready(function() {
 			}
 		});
 
+<<<<<<< HEAD
+=======
+		$("#exportButton").click(function() {
+			window.open(document.location.origin + "/chat/"+chat+"/export");
+		});
+
+>>>>>>> 68ff6b3af88cb4d1d46a949b61b7e3086f286404
 		// Activate mobile mode on small screens
 		if (navigator.userAgent.indexOf('Android')!=-1 || navigator.userAgent.indexOf('iPhone')!=-1 || window.innerWidth<=500) {
 			$(document.body).addClass('mobile');
